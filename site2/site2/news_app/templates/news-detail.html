@@ -1,0 +1,14 @@
+{% extends './base.html' %}
+{% block content %}
+<div class="news-detail">
+    <div class="container">
+        <a onclick="javascript:history.back();return false;" class="button-primary">Back</a>
+        <h1 class="primary-title">{{news.title}}</h1>
+        <div class="news-detail-img">
+            <img src="{{news.image}}" alt="test">
+        </div>
+        <p class="news-detail-description"> {{news.despription}}</p>
+        <p class="news-detail-date">{{news.created_at}}</p>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends './base.html' %}
+{% block content %}
+<section class="home">
+    <div class="container">
+        <h1 class="home-title">Моя библиотека</h1>
+        <p class="home-description">Немного описание книг которых я читала</p>
+        <a href="{% url 'news_page' %}" class="button-outline-light">Last news</a>
+    </div>
+</section>
+<section class="last-news">
+    <div class="container">
+        <h2 class="primary-title">Библиотека</h2>
+        <div class="news-row">
+            {% if latest_news %} {% for i in latest_news %}
+                <div class="news-card">
+                    <div class="news-img">
+                        <img src="{{i.image}}" alt="test">
+                    </div>
+                    <h3 class="news-title">{{i.title}}</h3>
+                    <h3 class="news-date">{{i.created_at}}</h3>
+                    <a href="{% url 'news_detail' i.pk %}" class="button-primary">Read</a>
+                </div>  
+             {% endfor %} {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends './base.html' %}
+{% block content %}
+<section class="news">
+    <div class="container">
+        <a onclick="javascript:history.back();return false;" class="button-primary">Back</a>
+        <h1 class="primary-title">News</h1>
+        <div class="news-row">
+            {% if latest_news %} {% for i in latest_news %}
+            <div class="news-card">
+                <div class="news-img">
+                    <img src="{{i.image}}" alt="test">
+                </div>
+                <h3 class="news-title">{{i.title}}</h3>
+                <h3 class="news-date">{{i.created_at}}</h3>
+                <a href="{% url 'news_detail' i.pk %}" class="button-primary">Read</a>
+            </div>  
+         {% endfor %} {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}
